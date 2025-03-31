@@ -52,7 +52,17 @@ body{
     padding:10px 20px;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
+    border: 1.5px solid #f7f7f7;
 }
+
+.menu-header-container  > button:hover {
+    border: 1.5px solid #F94B27;
+    background-color: #f7f7f7;
+    color: #F94B27;
+}
+
+
 .menu-header-page{
     list-style: none;
     display: flex;
@@ -65,6 +75,7 @@ body{
     border-radius: 50px;
     font-family: 'ClashDisplay-Semibold';
     border: solid 2px black;
+    cursor: pointer;
 }
 
 
@@ -75,7 +86,7 @@ body{
     height: 100%;
     padding-top: 100px;
 }
-img{
+.container > img{
     width: 75%;
     border-radius: 50px;
 }
