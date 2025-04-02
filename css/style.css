@@ -1,0 +1,55 @@
+.container{
+    position:relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.container-left{
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container-text-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 75px;
+    width: 60%;
+    gap: 50px;
+}
+.container-text{
+    font-family: "ClashDisplay-Semibold";
+    font-size: 1.25rem;
+    color: var(--black-color);
+}
+
+img{
+    
+    margin-left: auto;
+    width: 1386px;
+    height: fit-content;
+}
+
+.container-title{
+    position:absolute;
+    color:white;
+    right: 255px;
+    top: 225px;
+    font-size: 12rem;
+    font-family: "ClashDisplay-Semibold" ;
+    text-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+}
+
+.marquee{
+    margin-top: 50px;
+    width: 100%;
+    background-color: var(--red-color);
+    height: 70px;
+}
+
