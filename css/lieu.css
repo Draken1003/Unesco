@@ -1,0 +1,57 @@
+.container-titre{
+    position: relative;
+    height: 80%;
+}
+
+.titre{
+    position: absolute;
+    top: 35%;
+    right: 3%;
+    font-family: "ClashDisplay-Semibold";
+    font-size: 6rem;
+    color: white;
+    z-index: 1;
+}
+.container{
+    position: relative;
+    display: flex;
+    justify-content: end;
+}
+
+.container-left{
+    background-color: #02151C;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 87.5% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container-left-texte{
+    color: white;
+    font-family: "ClashDisplay-Semibold";
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    margin-left: 20%;
+}
+
+.container-left-texte > h1{
+    font-size: 3rem;
+    
+}
+.container-left-texte > p{
+    font-size: 1.8rem;
+    font-family: "Archivo-SemiBold", sans-serif;
+    line-height: 180%;
+    width: 70%;
+}
+
+.container > img{
+    width: 40%;
+}
