@@ -18,15 +18,15 @@ body{
 }
 
 .menu-header{
+    background-color: var(--black-color);
     position: fixed;
     display: flex;
     justify-content: space-between;
     width:100%;
-    padding-top: 15px;
+    padding: 12.5px 0;
     z-index: 100;
 }
 .menu-header > img{
-    filter: brightness(0%);
     width: 175px;   
     margin-left: 175px;
 }

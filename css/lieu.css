@@ -1,3 +1,16 @@
+h1{
+    font-family: "ClashDisplay-Semibold";
+    font-size: 3rem;
+}
+p{
+    font-size: 1.8rem;
+    font-family: "Archivo-SemiBold", sans-serif;
+    line-height: 180%;
+    width: 70%;
+}
+
+/*---------------------------------*/
+
 .container-titre{
     position: relative;
     height: 80%;
@@ -12,12 +25,13 @@
     color: white;
     z-index: 1;
 }
+
+/*---------------------------------*/
 .container{
     position: relative;
     display: flex;
     justify-content: end;
 }
-
 .container-left{
     background-color: #02151C;
     position: absolute;
@@ -33,25 +47,141 @@
 }
 .container-left-texte{
     color: white;
-    font-family: "ClashDisplay-Semibold";
-    display: flex;
-    flex-direction: column;
+    height: 80%;
     width: 80%;
-    height: 90%;
-    margin-left: 20%;
-}
-
-.container-left-texte > h1{
-    font-size: 3rem;
-    
-}
-.container-left-texte > p{
-    font-size: 1.8rem;
-    font-family: "Archivo-SemiBold", sans-serif;
-    line-height: 180%;
-    width: 70%;
 }
 
 .container > img{
     width: 40%;
 }
+
+/*---------------------------------*/
+.container2{
+    padding: 0 260px;
+    margin: 140px 0;
+}
+.container2-bottom{
+    display: flex;
+    gap: 160px;
+
+}
+.container2-bottom > img{
+    width: 50%;
+    border-radius: 50px;
+}
+
+/*---------------------------------*/
+
+
+.container3{
+    position: relative;
+}
+.container3-right{
+    background-color: #02151C;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 99.25%;
+    clip-path: polygon(12.5% 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+.container3-right-texte{
+    color: white;
+    height: 80%;
+    width: 80%;
+}
+.container3 > img{
+    width: 40%;
+}
+
+/*---------------------------------*/
+
+
+.container-button{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 200px 0;
+}
+
+.container-button > a{
+    box-shadow: 0 0px 32px 0 rgba(70, 10, 2, 0.37);
+    background: var(--red-color);
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 30px ;
+    color: white;
+    text-decoration: none;
+    font-family: "Archivo-SemiBold", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+
+/*---------------------------------*/
+
+
+
+.map{
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 0px 32px 0 rgba(70, 10, 2, 0.37);
+    backdrop-filter: blur( 2.5px );
+    border-radius: 28px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 50px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.map > iframe{
+    border-radius: 25px;
+}
+.map-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.map-left > p{
+    font-size: 1rem;
+    line-height: 1.2;
+}
+.map-left-search-bar{
+    background: var(--red-color);
+    border-radius: 20px;
+    text-align: center;
+    padding: 0 30px ;
+    height: 30px;
+    width: 50%;
+    color: white;
+    text-decoration: none;
+    font-family: "Archivo-SemiBold", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------*/
