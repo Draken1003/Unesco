@@ -11,7 +11,7 @@ body{
     background-size: 80px 80px;
     background-position: 0 0,40px 40px;
     opacity: 0.2;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: fixed;
     z-index: -1;
@@ -22,12 +22,12 @@ body{
     position: fixed;
     display: flex;
     justify-content: space-between;
-    width:100%;
+    width: 100vw;
     padding: 12.5px 0;
     z-index: 100;
 }
 .menu-header > img{
-    width: 175px;   
+    width: 9%;   
     margin-left: 175px;
 }
 .menu-header-container{
@@ -47,15 +47,25 @@ body{
     font-size: 1rem;
     color: white;
     width: fit-content;
+    border: solid 1px var(--red-color);
 }
-.menu-header-page{
+.bouton:hover{
+    background-color: var(--white-color);
+    color: var(--red-color);
+    border:solid 1px var(--red-color);
+    cursor: pointer;
+}
+
+
+
+.menu-header-container-page{
     list-style: none;
     display: flex;
     justify-content: space-between;
     width: 60%;
     padding: 0;
 }
-.menu-header-page > li{
+.menu-header-container-page > li{
     font-family: 'ClashDisplay-Semibold';
     color: var(--white-color);
 
@@ -63,5 +73,4 @@ body{
 .translate-icon{
     width: 20px;
     height: 20px;
-    
 }

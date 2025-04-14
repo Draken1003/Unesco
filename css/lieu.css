@@ -1,10 +1,12 @@
+
+
 h1{
     font-family: "ClashDisplay-Semibold";
     font-size: 3rem;
 }
 p{
     font-size: 1.8rem;
-    font-family: "Archivo-SemiBold", sans-serif;
+    font-family: "Archivo", sans-serif;
     line-height: 180%;
     width: 70%;
 }

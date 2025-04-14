@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .container{
     position:relative;
     display: flex;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 }
 .container-left{
@@ -10,10 +13,9 @@
     top: 0;
     left: 0;
     width: 35%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: end;
-    
 }
 
 .container-text-button{
@@ -32,9 +34,8 @@
 }
 
 img{
-    
     margin-left: auto;
-    width: 1386px;
+    width: 73.75%;
     height: fit-content;
 }
 
@@ -50,8 +51,15 @@ img{
 
 .marquee{
     margin-top: 50px;
-    width: 100%;
+    width: 100vw;
     background-color: var(--red-color);
     height: 70px;
+}
+
+.card-container{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 141px auto;
 }
 
