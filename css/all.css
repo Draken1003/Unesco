@@ -39,23 +39,51 @@ body{
 }
 
 .bouton{
+    user-select: none;
     all: unset;
     background-color: var(--red-color);
-    font-family: 'ClashDisplay-Semibold';
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
     padding: 7.5px 15px;
     border-radius: 10px;
     font-size: 1rem;
-    color: white;
+    color: var(--white-color);
     width: fit-content;
-    border: solid 1px var(--red-color);
+    border: solid 2px var(--red-color);
+    transition: .3s;
 }
 .bouton:hover{
     background-color: var(--white-color);
     color: var(--red-color);
-    border:solid 1px var(--red-color);
+    border:solid 2px var(--red-color);
     cursor: pointer;
 }
+.bouton:active{
+    background-color: rgb(249, 75, 39, .2);
+}
 
+.bouton-signup {
+    user-select: none;
+    all: unset;
+    background-color: var(--red-color);
+    font-family: "Archivo", sans-serif;
+    font-weight: 600; /* semi-bold */
+    padding: 7.5px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--white-color);
+    width: fit-content;
+    border: solid 2px var(--red-color);
+    transition: .3s;
+}
+.bouton-signup:hover {
+    background-color: var(--black-color);
+    border:solid 2px var(--red-color);
+    cursor: pointer;
+}
+.bouton-signup:active {
+    background-color: rgb(249, 75, 39, .2);
+}
 
 
 .menu-header-container-page{

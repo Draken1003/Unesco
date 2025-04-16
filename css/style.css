@@ -28,7 +28,8 @@
     margin-bottom: 200px;
 }
 .container-text{
-    font-family: "ClashDisplay-Semibold";
+    font-family: "Archivo", sans-serif;
+    font-weight: 600; /* semi-bold */
     font-size: 1.25rem;
     color: var(--black-color);
 }
