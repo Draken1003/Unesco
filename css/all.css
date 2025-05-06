@@ -1,6 +1,11 @@
-body{
+*{
     margin : 0;
     padding: 0;
+}
+
+body{
+    
+    height: fit-content;
     position: relative;
     overflow-x:hidden;
 }
@@ -12,13 +17,12 @@ body{
     background-position: 0 0,40px 40px;
     opacity: 0.2;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     z-index: -1;
 }
 
 .menu-header{
-    background-color: var(--black-color);
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -26,10 +30,13 @@ body{
     padding: 12.5px 0;
     z-index: 100;
 }
-.menu-header > img{
-    width: 9%;   
-    margin-left: 175px;
+.menu-header > img{   
+    width: 11%;
+    height: auto;
+    margin-left: 11%;
+    filter: invert(1);
 }
+
 .menu-header-container{
     display: flex;
     align-items:center;
@@ -50,7 +57,7 @@ body{
     border: solid 1px var(--red-color);
 }
 .bouton:hover{
-    background-color: var(--white-color);
+    background-color: transparent;
     color: var(--red-color);
     border:solid 1px var(--red-color);
     cursor: pointer;
@@ -65,12 +72,35 @@ body{
     width: 60%;
     padding: 0;
 }
-.menu-header-container-page > li{
+.menu-header-container-page > li > a{
+    text-decoration: none;
     font-family: 'ClashDisplay-Semibold';
     color: var(--white-color);
-
 }
 .translate-icon{
     width: 20px;
     height: 20px;
+}
+
+
+@keyframes navbar-bg {
+    0%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: var(--black-color);
+    }
+}
+
+@keyframes navbar-bg-transparent {
+    0%{
+        background-color: var(--black-color);
+    }
+    100%{
+        background-color: transparent;
+    }
+}
+
+#mcn-l{
+    filter: invert(0);
 }

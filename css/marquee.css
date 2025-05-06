@@ -1,0 +1,35 @@
+.barre-defilante {
+    width: 100vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: var(--red-color);
+}
+
+.wrapper {
+    overflow: hidden;
+    height: fit-content;
+}
+
+.marquee {
+    height: 100%;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+    
+}
+
+.marquee p {
+    color: var(--white-color);
+    font-size: 3rem;
+    font-family: "ClashDisplay-Semibold";
+    background-color: var(--red-color);
+}
+
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}

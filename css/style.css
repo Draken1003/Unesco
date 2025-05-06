@@ -33,14 +33,19 @@
     color: var(--black-color);
 }
 
-img{
-    margin-left: auto;
-    width: 73.75%;
-    height: fit-content;
+.container-right{
+    display: flex;
+    justify-content: end;
+    padding-right: 15%;
+    align-items: center;
+    background-image: url("/img/sorasak-_UIN-pFfJ7c-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
 }
 
 .container-title{
-    position:absolute;
     color:white;
     right: 255px;
     top: 225px;
@@ -57,9 +62,21 @@ img{
 }
 
 .card-container{
+    width: 75vw;
+    height: 60vh;
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: space-around;
     margin: 141px auto;
 }
 
+
+@media screen and (max-width: 768px) {
+    .card-container{
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 90%;
+    }
+    
+} 
