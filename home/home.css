@@ -1,39 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-.container{
-    position:relative;
+.container {
+    position: relative;
     display: flex;
     width: 100vw;
     height: 100vh;
 }
-.container-left{
+
+.container-left {
     background-color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%;
+    width: 80%;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: end;
 }
 
-.container-text-button{
+.container-text-button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 125px;
+    justify-content: space-between;
     width: 60%;
-    gap: 50px;
+    height: 30%;
+    gap: 40px;
     margin-bottom: 200px;
 }
-.container-text{
-    font-family: "ClashDisplay-Semibold";
+
+.container-text {
+    font-family: "Archivo";
+    font-weight: 600;
+    font-style: italic;
     font-size: 1.25rem;
     color: var(--black-color);
+    text-align: center;
 }
 
-.container-right{
+.container-right {
     display: flex;
     justify-content: end;
     padding-right: 15%;
@@ -43,25 +47,26 @@
     background-position: center;
     width: 100%;
     height: 100%;
+
 }
 
-.container-title{
-    color:white;
+.container-title {
+    color: white;
     right: 255px;
     top: 225px;
-    font-size: 12rem;
-    font-family: "ClashDisplay-Semibold" ;
-    text-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+    font-size: 11vw;
+    font-family: "ClashDisplay-Semibold";
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
-.marquee{
+.marquee {
     margin-top: 50px;
     width: 100vw;
     background-color: var(--red-color);
     height: 70px;
 }
 
-.card-container{
+.card-container {
     width: 75vw;
     height: 60vh;
     display: flex;
@@ -71,12 +76,39 @@
 
 
 @media screen and (max-width: 768px) {
-    .card-container{
+    .container {
+        height: 100vh;
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+
+    .container>.container-left {
+        width: 100%;
+        align-items: center;
+        
+    }
+
+    .container-text-button {
+        margin: 0;
+        height: 80%;
+        width: 80%;
+    }
+
+    .container>.container-right {
+        justify-content: center;
+    }
+
+    .container>.container-right>h1 {
+        font-size: 20vw;
+    }
+
+    .card-container {
         height: 50vh;
+
         flex-direction: column;
         align-items: center;
         gap: 20px;
         width: 90%;
     }
-    
-} 
+
+}

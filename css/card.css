@@ -26,6 +26,7 @@
 
 .card-text {
     color: var(--black-color);  
+    height: 80%;
 }
 
 .card-text > h1{
@@ -37,6 +38,7 @@
 .card-text > p{
     font-family: "Archivo", sans-serif;
     font-size: 1.15rem;
+    margin-top: 9%;
 }
 
 .card-bottom > .bouton{
@@ -63,9 +65,12 @@
 
     .card-bottom{
         padding: 0;
-        width: 75%;
+        width: 100%;
     }
 
+    .card-text{
+        height: 100%;
+    }
     .card-text > h1{
         font-size: 1.5rem;
     }
@@ -74,7 +79,7 @@
         font-size: 0.8rem;
         width: 100%;
     }
-    .bouton{
+    .card-bottom > .bouton{
         display: none;
     }
     

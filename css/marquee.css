@@ -14,7 +14,7 @@
     height: 100%;
     white-space: nowrap;
     animation: marquee 25s linear infinite;
-    
+    margin-top: 0;
 }
 
 .marquee p {
@@ -29,6 +29,7 @@
     0% {
         transform: translate3d(0, 0, 0);
     }
+
     100% {
         transform: translate3d(-50%, 0, 0);
     }
