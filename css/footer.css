@@ -29,15 +29,18 @@
     filter: grayscale(1);
 }
 
-
 .rights{
+    display: flex;
+    justify-content: center;
+}
+.rights > p{
     font-family:"Archivo", sans-serif;
     font-weight: bold;
     color: var(--black-color);
     text-align: center;
     margin-top: 20px;
-    
-    font-size: 1rem;
+    font-size: 1vw;
+    width: fit-content;
 }
 
 @media  screen and (max-width: 1080px){
@@ -45,8 +48,8 @@
     .logo_footer span a img{
         width: 7vw;
     }
-    .rights{
-        font-size: 0.75rem;
+    .rights > p{
+        font-size: 2vw;
     }
 }
 
