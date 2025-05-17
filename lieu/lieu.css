@@ -281,6 +281,9 @@ p {
         width: 100%;
     }
 
+    .container>.container-left>.top{
+        margin-bottom: 20px;
+    }
     .container>.container-left>.top>h1 {
         text-align: center;
         width: 100%;
