@@ -17,7 +17,7 @@
     align-items: end;
 }
 
-.container-text-button {
+.container-text-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,20 +75,23 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .container {
         height: 100vh;
         flex-direction: column-reverse;
         overflow: hidden;
     }
 
-    .container>.container-left {
+    .container >.container-left {
         width: 100%;
         align-items: center;
         
     }
+    .container .container-left .container-text-bottom {
+        justify-content: center;
+    }
 
-    .container-text-button {
+    .container-text-bottom {
         margin: 0;
         height: 80%;
         width: 80%;
