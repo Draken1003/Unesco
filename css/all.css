@@ -41,8 +41,9 @@ body{
     display: flex;
     align-items:center;
     justify-content: space-evenly;
-    width: 50%;
-    margin-right: 100px;
+    min-width: clamp(500px, 5vw, 800px);
+    width: 60%;
+    margin-right: clamp(30px, 2%, 80px);
 }
 
 .bouton{
@@ -68,18 +69,23 @@ body{
 .menu-header-container-page{
     list-style: none;
     display: flex;
-    justify-content: space-between;
-    width: 60%;
+    justify-content: space-evenly;
+    min-width: 70%;
     padding: 0;
 }
 .menu-header-container-page > li > a{
     text-decoration: none;
     font-family: 'ClashDisplay-Semibold';
     color: var(--white-color);
+    font-size: clamp(10px, 1.3vw, 60px);
 }
 .translate-icon{
     width: 20px;
     height: 20px;
+}
+#mcn {
+    width: clamp(100px, 10vw, 300px);
+    min-height: clamp(80px, 10%, 300px);
 }
 
 
@@ -101,6 +107,9 @@ body{
     }
 }
 
-#mcn-l{
-    filter: invert(0);
+
+@media screen and (max-width:800px) {
+    #mcn{
+        filter: invert(0);
+    }
 }
