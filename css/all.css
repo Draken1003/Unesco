@@ -36,6 +36,9 @@ body{
     margin-left: 11%;
     filter: invert(1);
 }
+.menu-header-container > ul > li > a:hover {
+    text-decoration: underline;
+}
 
 .menu-header-container{
     display: flex;
@@ -56,6 +59,7 @@ body{
     color: white;
     width: fit-content;
     border: solid 1px var(--red-color);
+    transition: .3s ease;
 }
 .bouton:hover{
     background-color: transparent;
@@ -64,7 +68,35 @@ body{
     cursor: pointer;
 }
 
+.arrow_bottom {
+    cursor: pointer;
+    all: unset;
+    background-color: var(--red-color);
+    width: 38px;
+    height: 38px;
+    border-radius: 100px;
+    border: solid 1px var(--red-color);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+}
+
+.arrow_bottom>a>img{
+    width: 28px;
+    height: 28px;
+}
+
+.arrow_bottom:hover {
+    opacity: 0.7;
+}
 
 .menu-header-container-page{
     list-style: none;
@@ -87,6 +119,13 @@ body{
     width: clamp(100px, 10vw, 300px);
     min-height: clamp(80px, 10%, 300px);
 }
+<<<<<<< Updated upstream
+=======
+
+a {
+    color: var(--green-color);
+}
+>>>>>>> Stashed changes
 
 
 @keyframes navbar-bg {
