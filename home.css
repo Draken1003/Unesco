@@ -42,7 +42,7 @@
     justify-content: end;
     padding-right: 15%;
     align-items: center;
-    background-image: url("img/sorasak.jpg");
+    background-image: url("./img/sorasaka.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -73,7 +73,6 @@
     justify-content: space-around;
     margin: 141px auto;
 }
-
 
 @media screen and (max-width: 800px) {
     .container {
