@@ -119,13 +119,10 @@ body{
     width: clamp(100px, 10vw, 300px);
     min-height: clamp(80px, 10%, 300px);
 }
-<<<<<<< Updated upstream
-=======
 
 a {
     color: var(--green-color);
 }
->>>>>>> Stashed changes
 
 
 @keyframes navbar-bg {
