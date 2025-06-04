@@ -1,7 +1,9 @@
 .barre-defilante {
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 100vw;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     background-color: var(--red-color);
 }
 
@@ -18,6 +20,7 @@
 }
 
 .marquee p {
+    user-select: none;
     color: var(--white-color);
     font-size: 3rem;
     font-family: "ClashDisplay-Semibold";

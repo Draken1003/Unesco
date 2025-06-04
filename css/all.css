@@ -69,6 +69,25 @@ body{
 }
 
 .arrow_bottom {
+     cursor: pointer;
+    all: unset;
+    background-color: var(--red-color);
+    width: 38px;
+    height: 38px;
+    border-radius: 100px;
+    border: solid 1px var(--red-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.arrow_bottom>a>img{
+    width: 28px;
+    height: 28px;
+}
+
+.arrow_bottom-center {
     cursor: pointer;
     all: unset;
     background-color: var(--red-color);
@@ -89,7 +108,7 @@ body{
     transition: 0.3s ease;
 }
 
-.arrow_bottom>a>img{
+.arrow_bottom-center>a>img{
     width: 28px;
     height: 28px;
 }
