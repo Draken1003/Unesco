@@ -18,7 +18,7 @@
 .card-bottom{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     padding: 15px;
     height: 50%;
@@ -27,7 +27,7 @@
 }
 .card-bottom button {
     position: absolute;
-    bottom: 5%;
+    bottom: 0;
 }
 .card-text {
     color: var(--black-color);  
