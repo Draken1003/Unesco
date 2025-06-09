@@ -70,15 +70,15 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
               <button class="bouton">Voir plus</button>
           </div>
       </div>
-    <?php
-      $counter++;
-      
-      // ferme le container au bout de 3 cards
-      if ($counter % 3 === 0 || $counter === count($monuments)) {
-          echo '</div>'; 
+      <?php
+        $counter++;
+        
+        // ferme le container au bout de 3 cards
+        if ($counter % 3 === 0 || $counter === count($monuments)) {
+            echo '</div>'; 
+        }
       }
-    }
-    ?>
+      ?>
     </div>
     <footer class="footer">
       <hr />
