@@ -15,8 +15,7 @@
 
     
     <?php
-        include('php/verif_log.php');
-        echo "<br>";
+        include(__DIR__ . '/php/verif_log.php');
     ?>
 
     <span class="background"></span>
