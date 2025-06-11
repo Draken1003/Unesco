@@ -1,0 +1,197 @@
+* {
+    color: var(--black-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer > hr{
+    width: 40vw;
+}
+/*---------------------------------*/
+
+.container-titre {
+    position: relative;
+    height: 80%;
+    user-select: none;
+}
+
+.titre {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    font-family: "ClashDisplay-Semibold";
+    font-size: 5vw;
+    color: white;
+    z-index: 1;
+}
+.container-right {
+    display: flex;
+    align-items: center;
+    background-image: url("../../img/architecture/main_image.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 90vh;
+}
+#main-histoire {
+    background-image: url("../../img/histoire/main_image.png");
+}
+
+.container-title {
+    position: absolute;
+    color: white;
+    left: 5%;
+    top: 225px;
+    font-size: clamp(20px, 9vw, 140px);
+    font-family: "ClashDisplay-Semibold";
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+
+/*---------------------------------*/
+
+.main-container {
+    width: 100%;
+    margin-top: 5%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    min-height: 60vh;
+
+}
+.main-container .container:nth-of-type(1), .main-container .container:nth-of-type(3),.main-container .container:nth-of-type(5),.main-container .container:nth-of-type(7) {
+    flex-direction: row-reverse;
+    min-height: 60vh;
+}
+
+.main-container .container:nth-of-type(2) .text {
+    width: 55%;
+}
+.main-container .container:nth-of-type(2) .illustration {
+    min-width: 350px;
+}
+.main-container .container:nth-of-type(2) .illustration img {
+    width: 100%;
+}
+
+
+.text {
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.text>h2 {
+    font-size: clamp(20px, 4vw, 50px);
+    font-family: "ClashDisplay-Semibold";
+    max-width: 60rem;
+}
+
+.text>p {
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(15px, 1.5vw, 25px);
+    max-width: 50rem;
+    line-height: 180%;
+}
+
+.illustration {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 90%;
+    border-radius: 25px;
+    filter: drop-shadow(0px 10px 50px #a3a3a3);
+}
+
+.illustration > img {
+    width: 80%;
+    height: fit-content;
+    margin: 0;
+    border-radius: 25px;
+}
+
+.arrow_bottom-center {
+    cursor: pointer;
+    background-color: var(--red-color);
+    width: 5vw;
+    height: 5vw;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 100px;
+    border: solid 1px var(--red-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: all 0.3s ease;
+}
+
+.arrow_bottom-center>a>img{
+    width: 5vw;
+    height: 5vw;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+@media screen and (max-width:1150px) {
+    .main-container .container, .main-container .container:nth-of-type(2), .main-container .container:nth-of-type(1), .main-container .container:nth-of-type(3),.main-container .container:nth-of-type(5),.main-container .container:nth-of-type(7) {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 1.5vw;
+        margin: 0;
+    }
+    .container .text,  .main-container .container:nth-of-type(2) .text {
+        width: 85%;
+    }
+    .container .illustration img {
+        min-width: 150px;
+        min-height: 100px;
+    }
+    .main-container .container:nth-of-type(2) .illustration {
+        min-width: 250px;
+        min-height: 50px;
+    }
+}
+@media screen and (max-width:900px) {
+    .container-title  {
+        text-align: center;
+        left: clamp(50px, 20vw, 200px);
+    }
+    #histoire  {
+        left: clamp(50px, 33vw, 250px);
+    }
+    .arrow_bottom-center {
+        display: none;
+    }
+    .main-container .container:nth-of-type(1) .illustration img {
+        min-height: 150px;
+        min-width: 200px;
+    }
+    #img8, #img7 {
+        min-width: 250px;
+        min-height: 150px;
+    }
+}

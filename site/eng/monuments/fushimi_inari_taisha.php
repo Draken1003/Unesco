@@ -60,7 +60,7 @@
                         <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
-                <button class="bouton">Sign Up</button>
+                <button class="bouton">Login</button>
             </div>
         </header>
 

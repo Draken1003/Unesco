@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture</title>
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/color_var.css" />
+    <link rel="stylesheet" href="../css/font.css" />
+    <link rel="stylesheet" href="../css/all.css" />
+    <link rel="stylesheet" href="../histoire/histoire.css" />
+  </head>
+  <body>
+    <span class="background"></span>
+
+    <header class="menu-header" id="menu-header">
+      <img src="../../img/logo/logo_mcn.png" id="mcn" alt="logo mcn" style="filter: invert(0);" />
+      <div class="menu-header-container">
+        <div class="nav-links">
+          <ul class="menu-header-container-page" id="menu">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../monuments/lieux.php">Monuments</a></li>
+            <li><a href="./architecture.html">Architecture</a></li>
+            <li><a href="../histoire/histoire.html">History</a></li>
+          </ul>
+        </div>
+        <a href
+          ><img class="translate-icon" src="../../img/icon/translation.png" alt
+        /></a>
+        <button class="bouton">Login</button>
+        <img
+          src="../../img/icon/menu.png"
+          alt="une icone de menu"
+          class="menu-icon"
+          id="burger-icon"
+        />
+      </div>
+    </header>
+
+    <div class="container-right">
+      <h1 class="container-title">Architecture</h1>
+      <div class="arrow_bottom-center">
+        <a href="#debutpage"
+          ><img src="../../img/icon/arrow.png" alt="arrow icon" />
+        </a>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="container" id="debutpage">
+        <div class="text">
+          <h2>Harmony between nature and architecture</h2>
+          <p>
+            Kyoto's traditional buildings, such as Buddhist temples and Shinto shrines, 
+            are designed to blend harmoniously into their natural surroundings. 
+            The use of local materials (wood, bamboo, stone) and the layout of the gardens reflect this philosophy.
+          </p>
+        </div>
+        <div class="illustration">
+          <img src="../../img/architecture/archi_illu1.png" alt="illu_1" />
+        </div>
+      </div>
+      <div class="container">
+        <div class="text">
+          <h2>A refined wabi-sabi aesthetic</h2>
+          <p>
+            The architecture reflects the principles of wabi-sabi 
+            (the beauty of imperfection and simplicity) 
+            and great attention to detail. The refined interiors, 
+            the play of natural light, the sliding doors (shōji)
+            and the tatami mats illustrate this sober refinement.
+          </p>
+        </div>
+        <div class="illustration">
+          <img src="../../img/architecture/archi_illu2.png" alt="illu_2" />
+        </div>
+      </div>
+      <div class="container">
+        <div class="text">
+          <h2>Preserving traditional skills</h2>
+          <p>
+            Kyoto is a model for the preservation of historic buildings, 
+            thanks to the rigorous transmission of artisanal techniques 
+            (carpentry, kawara tile roofing, lacquerware, etc.). 
+            This cultural continuity ensures the durability and authenticity of its architectural heritage.
+          </p>
+        </div>
+        <div class="illustration">
+          <img src="../../img/architecture/archi_illu3.png" alt="illu_3" />
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <hr />
+      <div class="logo_footer">
+        <span>
+          <a href="https://whc.unesco.org" target="_blank">
+            <img src="../../img/logo/UNESCO_logo.png" width="50px" alt="logo unesco" />
+          </a>
+        </span>
+        <span>
+          <a href="https://whc.unesco.org/en/list/688/" target="_blank">
+            <img src="../../img/logo/kyoto_logo.png" width="50px" alt="logo kyoto" />
+          </a>
+        </span>
+        <span>
+          <a href="https://www.univ-gustave-eiffel.fr" target="_blank">
+            <img
+              class="gustave"
+              src="../../img/logo/logo_gustave.png"
+              width="50px"
+              alt="logo uni eiffel"
+            />
+          </a>
+        </span>
+      </div>
+      <div class="rights">
+        <p>© 2025 - All Rights reserved</p>
+      </div>
+    </footer>
+    <script src="../js/navbar.js"></script>
+    <script>
+      const burgerIcon = document.getElementById("burger-icon");
+      const menu = document.getElementById("menu");
+
+      burgerIcon.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
