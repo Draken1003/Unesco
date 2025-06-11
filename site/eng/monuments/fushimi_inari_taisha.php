@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link
             href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet" href="/css/all.css">
-        <link rel="stylesheet" href="/css/color_var.css">
-        <link rel="stylesheet" href="../../css/font.css">
-        <link rel="stylesheet" href="fushimi_inari_taisha.css">
-        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="../css/all.css">
+        <link rel="stylesheet" href="../css/color_var.css">
+        <link rel="stylesheet" href="../css/font.css">
+        <link rel="stylesheet" href="./fushimi_inari_taisha.css">
+        <link rel="stylesheet" href="../css/footer.css">
         <title>Fushimi-Inari Taisha</title>
     </head>
     <body>
         <?php
-        session_start();
-        include("../../connexion.inc.php");
+        include("../connexion.inc.php");
         $nom_monument = 'Fushimi-inari-taisha';
         // Liste des images
         $images = [
@@ -26,65 +25,39 @@
             'img/statue.svg'
         ];
 
-        // Détermine la langue par défaut (français)
-        $default_language = 'fr';
-        $_SESSION['language'] = $default_language;
-
         // Traitement du changement de langue
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            // Inverse la langue actuelle
-            $new_language = ($_SESSION['language'] ?? $default_language) === 'fr' ? 'en' : 'fr';
-            $_SESSION['language'] = $new_language;
-            
-            if ($new_language === 'fr') {
-                header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
-            } else {
-                header("Location: ../../eng/monuments/fushimi_inari_taisha.php");
-            }
-            exit();
+            header("Location: ../../eng/monuments/fushimi_inari_taisha.php");
+            exit;
         }
 
         $current_language = $_SESSION['language'] ?? $default_language;
+        // Récupérer les informations du monument
+        $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
+        $monumentQuery->execute([$nom_monument]);
+        $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
+        $monumentId = $monument['id_m'];
 
-        if ($_SESSION['language'] === 'fr') {
-            // Récupérer les informations du monument
-            $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-            $monumentQuery->execute([$nom_monument]);
-            $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-            $monumentId = $monument['id_m'];
-
-            // Récupérer les sections associées à ce monument
-            $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-            $sectionsQuery->execute([$monumentId, 'fr']);
-            $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            // Récupérer les informations du monument
-            $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-            $monumentQuery->execute([$nom_monument]);
-            $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-            $monumentId = $monument['id_m'];
-
-            // Récupérer les sections associées à ce monument
-            $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-            $sectionsQuery->execute([$monumentId, 'en']);
-            $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        }
+        // Récupérer les sections associées à ce monument
+        $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
+        $sectionsQuery->execute([$monumentId, 'eng']);
+        $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <span class="background"></span>
         <header class="menu-header" id="menu-header">
-            <img src="/img/logo/logo_mcn.png" width="11%" id="mcn" alt>
+            <img src="../../img/logo/logo_mcn.png" width="11%" id="mcn" alt>
             <div class="menu-header-container">
                 <ul class="menu-header-container-page">
-                    <li><a href="../../home.html">Accueil</a></li>
-                    <li><a href="">Monuments</a></li>
-                    <li><a href="../../architecture/architecture.html">Architecture</a></li>
-                    <li><a href="../../histoire/histoire.html">Histoire</a></li>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="lieux.php">Monuments</a></li>
+                    <li><a href="../architecture/architecture.html">Architecture</a></li>
+                    <li><a href="../histoire/histoire.html">History</a></li>
                 </ul>
                 <form method="post" class="language-form">
                     <input type="hidden" name="change_language" value="1">
                     <button type="submit" class="translate-button" aria-label="<?= ($_SESSION['language'] ?? 'fr') === 'fr' ? 'Switch to English' : 'Passer en Français' ?>">
-                        <img src="../../img/icon/translation.png" alt="Language" class="translate-icon">
+                        <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
                 <button class="bouton">Sign Up</button>
@@ -152,13 +125,13 @@
         <?php } 
         } ?>
         <div class="container-button">
-            <a href="http://">Plus d'info</a> 
+            <a href="http://">More informations</a> 
         </div>
 
         <div class="map">
             <div class="map-left">
                 <div class="top">
-                    <p>Adresse : 8 Umegahata Toganoocho, Ukyo Ward, Kyoto, 616-8295, Japon</p>
+                    <p>Adress: 8 Umegahata Toganoocho, Ukyo Ward, Kyoto, 616-8295, Japon</p>
                 </div>
                 <div class="bottom">
                     <a class="map-left-search-bar" target="_blank" href="<?= htmlspecialchars($monument['google_map']) ?>">
@@ -178,25 +151,23 @@
             <div class="logo_footer">
                 <span>
                     <a href="https://whc.unesco.org" target="_blank"><img
-                            src="/img/logo/UNESCO_logo.png" width="50px" alt></a>
+                            src="../../img/logo/UNESCO_logo.png" width="50px" alt="logo unesco"></a>
                 </span>
                 <span>
                     <a href="https://whc.unesco.org/en/list/688/"
-                        target="_blank"><img src="/img/logo/kyoto_logo.png"
-                            width="50px" alt></a>
+                        target="_blank"><img src="../../img/logo/kyoto_logo.png"
+                            width="50px" alt="logo kyoto"></a>
                 </span>
                 <span>
                     <a href="https://www.univ-gustave-eiffel.fr"
                         target="_blank"><img class="gustave"
-                            src="/img/logo/logo_gustave.png" width="50px" alt></a>
+                            src="../../img/logo/logo_gustave.png" width="50px" alt="logo uni eiffel"></a>
                 </span>
             </div>
-
             <div class="rights">
-                <p>© 2025 - Tous droits réservés</p>
+                <p>© 2025 - All rights reserved</p>
             </div>
         </footer>
-
     </body>
-    <script src="/js/navbar.js"></script>
+    <script src="../../fr/js/navbar.js"></script>
 </html>

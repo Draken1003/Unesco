@@ -15,7 +15,6 @@
     </head>
     <body>
         <?php
-        session_start();
         include("../connexion.inc.php");
         $nom_monument = 'Fushimi-inari-taisha';
         // Liste des images
@@ -26,49 +25,23 @@
             'img/statue.svg'
         ];
 
-        // Détermine la langue par défaut (français)
-        $default_language = 'fr';
-        $_SESSION['language'] = $default_language;
-
         // Traitement du changement de langue
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            // Inverse la langue actuelle
-            $new_language = ($_SESSION['language'] ?? $default_language) === 'fr' ? 'en' : 'fr';
-            $_SESSION['language'] = $new_language;
-            
-            if ($new_language === 'fr') {
-                header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
-            } else {
-                header("Location: ../../eng/monuments/fushimi_inari_taisha.php");
-            }
-            exit();
+            header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
+            exit;
         }
 
         $current_language = $_SESSION['language'] ?? $default_language;
+        // Récupérer les informations du monument
+        $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
+        $monumentQuery->execute([$nom_monument]);
+        $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
+        $monumentId = $monument['id_m'];
 
-        if ($_SESSION['language'] === 'fr') {
-            // Récupérer les informations du monument
-            $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-            $monumentQuery->execute([$nom_monument]);
-            $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-            $monumentId = $monument['id_m'];
-
-            // Récupérer les sections associées à ce monument
-            $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-            $sectionsQuery->execute([$monumentId, 'fr']);
-            $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            // Récupérer les informations du monument
-            $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-            $monumentQuery->execute([$nom_monument]);
-            $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-            $monumentId = $monument['id_m'];
-
-            // Récupérer les sections associées à ce monument
-            $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-            $sectionsQuery->execute([$monumentId, 'en']);
-            $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        }
+        // Récupérer les sections associées à ce monument
+        $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
+        $sectionsQuery->execute([$monumentId, 'fr']);
+        $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <span class="background"></span>
@@ -87,7 +60,7 @@
                         <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
-                <button class="bouton">Sign Up</button>
+                <button class="bouton">Connexion</button>
             </div>
         </header>
 
