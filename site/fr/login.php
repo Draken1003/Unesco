@@ -17,15 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
             $_SESSION['u_id']= $row["id_r"];
 
             if ($row["id_r"]==1){
-                header("Location: ../admin.php"); 
+                header("Location: admin.php"); 
                 exit;
             }else if($row['id_r']==2){
-                header("Location: ../gestionnaire.php"); 
+                header("Location: gestionnaire.php"); 
                 exit;
             }  
 
             else{
-                header("Location: ../home.html"); 
+                header("Location: home.html"); 
                 exit;
             }
 
