@@ -19,7 +19,7 @@ session_start();
 
     
     <?php
-        include(__DIR__ . '/php/verif_log.php');
+        include('php/verif_log.php');
     ?>
 
     <span class="background"></span>
