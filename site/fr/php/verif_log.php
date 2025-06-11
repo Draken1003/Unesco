@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../connexion.inc.php");  
+    include("../../connexion.inc.php");  
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
         $email = hash('sha256', $_POST['email']);
