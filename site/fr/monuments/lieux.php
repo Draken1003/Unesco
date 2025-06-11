@@ -108,7 +108,7 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </footer>
   </body>
-  <script src="../../js/navbar.js"></script>
+  <script src="../js/navbar.js"></script>
   <script>
     const burgerIcon = document.getElementById("burger-icon");
     const menu = document.getElementById("menu");
