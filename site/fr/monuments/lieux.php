@@ -48,7 +48,6 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
     </header>
     <div class="center-page">
       <h1 id="page-title">Monuments</h1>
-
       <?php
       $counter = 0;
 

@@ -63,5 +63,8 @@ body {
     .menu-icon  {
         z-index: 1000000;
     }
+    .card-bottom > .bouton{
+        display: block;
+    }  
 }
 
