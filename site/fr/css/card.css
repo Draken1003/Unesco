@@ -1,0 +1,115 @@
+.card{
+    background-color: var(--white-color);
+    filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.25));
+    width: 25%;
+    border-radius: 15px;
+    height: 100%;
+    min-width: 200px;
+}
+
+.img{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 42.5%;
+    border-radius: 15px;  
+}
+
+.card-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 15px;
+    height: 50%;
+    width: auto;
+    position: relative;
+}
+
+.card-bottom button {
+    width: fit-content;
+    height: fit-content;
+    max-height: 15px;
+    text-align: center;
+    font: clamp(10px, 1vw, 50px) "ClashDisplay-Semibold";
+    line-height: 1vw;
+}
+
+.card-text {
+    color: var(--black-color);  
+    height: 80%;
+    max-height: 200px;
+}
+
+.card-text > h1{
+    font-family: "ClashDisplay-Semibold";
+    font-size: clamp(13px, 2.5vw, 40px);
+    margin: 0;
+}
+
+.card-text > p{
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(8px, 1.2vw, 30px);
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .center-page {
+        gap: 5%;
+    }
+    .card{
+        width: 100%;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-left: 0.8vw;
+        border-radius: 30px;
+        min-width: none;
+    }
+
+    .img{
+        height: 90%;
+        width: clamp(50px, 30%, 90px);
+        border-radius: 30px;
+        min-width: 80px;
+    }
+
+    .card-bottom{
+        padding: 0;
+        width: 70%;
+        height: 100%;
+
+    }
+
+    .card-text{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card-text > p{
+        margin: 0;
+        width: 100%;
+        font-size: clamp(8px, 2vw, 40px);
+    }
+    .card-bottom > .bouton{
+        display: none;
+    }  
+} 
+
+
+@media screen and (max-width:435px) {
+    .card  {
+        gap: 5px;
+    }
+}
+
+@media screen and (min-width:1400px) and (max-height:1000px) {
+    .card {
+        min-height: 50vh;
+    } 
+}
