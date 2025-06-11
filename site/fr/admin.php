@@ -6,7 +6,6 @@ include('../connexion.inc.php');
 if (!isset($_SESSION['u_id'])) {
     header("Location: login.php");
     exit;
-
 }
 
 if (isset($_POST['deco'])) {
@@ -14,7 +13,6 @@ if (isset($_POST['deco'])) {
     header('Location: login.php');
     exit;
 }
-
 
 //si il se deco : 
 if (isset($_POST['deco'])) {

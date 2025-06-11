@@ -36,16 +36,28 @@ body{
   margin-left: 11%;
   filter: invert(1);
 }
-/*
-.menu-header-container{
-    display: flex;
-    align-items:center;
-    justify-content: space-evenly;
-    min-width: clamp(500px, 5vw, 800px);
-    width: 60%;
-    margin-right: clamp(30px, 2%, 80px);
+/* pour le changement de langue*/
+.language-form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
 }
-*/
+
+.translate-button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.translate-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+/*----------------------*/
+
 .bouton{
     all: unset;
     background-color: var(--red-color);
