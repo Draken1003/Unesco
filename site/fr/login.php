@@ -55,17 +55,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
 
         <div class="sign-container">
             <a href="home.html">
-                <img src="img/home.png" id="home">
+                <img src="../img/home.png" id="home">
             </a>
 
-            <img src="img/user.png" class="default-pfp">
+            <img src="../img/user.png" class="default-pfp">
             <p>User Login</p>
             <div class="info-client">
                 <div class="input">
                     <input type="text" placeholder="Identifiant" required>
                     <div class="bot-input">
                         <input type="password" name="" id="pass" placeholder="Mot de passe" required>
-                        <img src="img/closed.png" alt="eye closed" id="eye" onClick="change()" />
+                        <img src="../img/closed.png" alt="eye closed" id="eye" onClick="change()" />
                     </div>
 
                 </div>
@@ -84,11 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
         function change() {
             if (e) {
                 document.getElementById("pass").setAttribute("type", "text");
-                document.getElementById("eye").src = "img/open.png";
+                document.getElementById("eye").src = "../img/open.png";
                 e = false;
             } else {
                 document.getElementById("pass").setAttribute("type", "password");
-                document.getElementById("eye").src = "img/closed.png";
+                document.getElementById("eye").src = "../img/closed.png";
                 e = true;
             }
         }
