@@ -26,7 +26,7 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
     <span class="background"></span>
 
     <header class="menu-header" id="menu-header">
-      <img src="../img/logo/logo_mcn.png" id="mcn" alt="logo" />
+      <img src="../../img/logo/logo_mcn.png" id="mcn" alt="logo" />
       <div class="menu-header-container">
         <div class="nav-links">
           <ul class="menu-header-container-page" id="menu">
@@ -84,19 +84,19 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       <div class="logo_footer">
         <span>
           <a href="https://whc.unesco.org" target="_blank"
-            ><img src="../img/logo/UNESCO_logo.png" width="50px" alt
+            ><img src="../../img/logo/UNESCO_logo.png" width="50px" alt
           /></a>
         </span>
         <span>
           <a href="https://whc.unesco.org/en/list/688/" target="_blank"
-            ><img src="../img/logo/kyoto_logo.png" width="50px" alt
+            ><img src="../../img/logo/kyoto_logo.png" width="50px" alt
           /></a>
         </span>
         <span>
           <a href="https://www.univ-gustave-eiffel.fr" target="_blank"
             ><img
               class="gustave"
-              src="../img/logo/logo_gustave.png"
+              src="../../img/logo/logo_gustave.png"
               width="50px"
               alt
           /></a>
@@ -108,7 +108,7 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </footer>
   </body>
-  <script src="../js/navbar.js"></script>
+  <script src="../../js/navbar.js"></script>
   <script>
     const burgerIcon = document.getElementById("burger-icon");
     const menu = document.getElementById("menu");
