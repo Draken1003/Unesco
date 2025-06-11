@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
 
                 </div>
 
-                <input type="submit" value="Se connecter">
+                <input type="submit" value="Se connecter" name="Valider">
                 <div class="infos">
                     <a href="inscription.php">Pas de compte ? Inscrivez vous ici</a>
                 </div>
