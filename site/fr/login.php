@@ -1,98 +1,51 @@
-<?php    
+<?php
 session_start();
 include('../connexion.inc.php');
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
-        $email = hash('sha256', $_POST['email']);
-        $mdp = hash('sha256', $_POST['mdp']);
 
-        $sql= "SELECT id_u, id_r FROM utilisateur WHERE email = :email AND password = :mdp";
-        $verif = $cnx->prepare($sql);
-        $verif->bindParam(':email', $email);
-        $verif->bindParam(':mdp', $mdp);
-        $verif->execute();
-        
-        if ($verif->rowCount() > 0) {
-            $row = $verif->fetch();
-            $_SESSION['u_id'] = $row['id_u'];
-            $_SESSION['u_id']= $row["id_r"];
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["valider"])) {
+    $email = hash('sha256', $_POST['email']);
+    $mdp = hash('sha256', $_POST['mdp']);
 
-            if ($row["id_r"]==1){
-                header("Location: admin.php"); 
-                exit;
-            }else if($row['id_r']==2){
-                header("Location: gestionnaire.php"); 
-                exit;
-            }  
+    $sql = "SELECT id_u, id_r FROM utilisateur WHERE email = :email AND password = :mdp";
+    $verif = $cnx->prepare($sql);
+    $verif->bindParam(':email', $email);
+    $verif->bindParam(':mdp', $mdp);
+    $verif->execute();
 
-            else{
-                header("Location: home.html"); 
-                exit;
-            }
+    if ($verif->rowCount() > 0) {
+        $row = $verif->fetch();
+        $_SESSION['u_id'] = $row['id_u'];
+        $_SESSION['u_role'] = $row['id_r'];
 
+        if ($row['id_r'] == 1) {
+            header("Location: admin.php");
+        } elseif ($row['id_r'] == 2) {
+            header("Location: gestionnaire.php");
         } else {
-            echo "<p style='color:red; font-size:1rem; font-weight:200;'>L'identifiant ou le mot de passe est incorrect.</p>";
+            header("Location: home.html");
         }
+        exit;
+    } else {
+        $erreur = "Identifiant ou mot de passe incorrect.";
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="css/color_var.css">
-
+    <title>Connexion</title>
 </head>
-
 <body>
 
-    <span class="background"></span>
-    <form action="post" id="login-form">
+<?php if (isset($erreur)) echo "<p style='color:red;'>$erreur</p>"; ?>
 
-        <div class="sign-container">
-            <a href="home.html">
-                <img src="../img/home.png" id="home">
-            </a>
+<form method="POST" action="">
+    <input type="text" name="email" placeholder="Email" required>
+    <input type="password" name="mdp" placeholder="Mot de passe" required>
+    <input type="submit" name="valider" value="Se connecter">
+</form>
 
-            <img src="../img/user.png" class="default-pfp">
-            <p>User Login</p>
-            <div class="info-client">
-                <div class="input">
-                    <input type="text" placeholder="Identifiant" required>
-                    <div class="bot-input">
-                        <input type="password" name="" id="pass" placeholder="Mot de passe" required>
-                        <img src="../img/closed.png" alt="eye closed" id="eye" onClick="change()" />
-                    </div>
-
-                </div>
-
-                <input type="submit" value="Se connecter" name="valider">
-                <div class="infos">
-                    <a href="inscription.php">Pas de compte ? Inscrivez vous ici</a>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <script>
-        e = true;
-
-        function change() {
-            if (e) {
-                document.getElementById("pass").setAttribute("type", "text");
-                document.getElementById("eye").src = "../img/open.png";
-                e = false;
-            } else {
-                document.getElementById("pass").setAttribute("type", "password");
-                document.getElementById("eye").src = "../img/closed.png";
-                e = true;
-            }
-        }
-    </script>
 </body>
-
 </html>
