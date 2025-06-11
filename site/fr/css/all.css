@@ -36,28 +36,16 @@ body{
   margin-left: 11%;
   filter: invert(1);
 }
-/* pour le changement de langue*/
-.language-form {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+/*
+.menu-header-container{
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    min-width: clamp(500px, 5vw, 800px);
+    width: 60%;
+    margin-right: clamp(30px, 2%, 80px);
 }
-
-.translate-button {
-    background: none;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.translate-icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-}
-/*----------------------*/
-
+*/
 .bouton{
     all: unset;
     background-color: var(--red-color);
@@ -79,52 +67,35 @@ body{
 }
 
 .arrow_bottom {
-    user-select: none;
-    cursor: pointer;
-    all: unset;
-    background-color: var(--red-color);
-    width: 38px;
-    height: 38px;
-    border-radius: 100px;
-    border: solid 1px var(--red-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  background-color: var(--red-color);
+  width: clamp(20px, 5vw, 60px);
+  height: clamp(20px, 5vw, 60px);
+  min-width: fit-content;
+  min-height: fit-content;
+  border-radius: 100px;
+  border: solid 1px var(--red-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
 }
 
 .arrow_bottom>a>img{
-    width: 28px;
-    height: 28px;
+    width: 3vw;
+    height: 3vw;
+    max-width: 30px;
+    max-height: 30px;
 }
 
-.arrow_bottom-center {
-    cursor: pointer;
-    all: unset;
-    background-color: var(--red-color);
-    width: 38px;
-    height: 38px;
-    border-radius: 100px;
-    border: solid 1px var(--red-color);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    transition: 0.3s ease;
+.arrow_bottom-center > a > img{
+    width: 3vw;
+    height: 3vw;
 }
 
-.arrow_bottom-center>a>img{
-    width: 28px;
-    height: 28px;
-}
-
-.arrow_bottom:hover {
+.arrow_bottom-:hover {
     opacity: 0.7;
 }
   
@@ -241,6 +212,9 @@ body{
 @media screen and (max-width:800px) {
     #mcn{
         filter: invert(0);
+    }
+    .arrow_bottom-center {
+      display: none;
     }
 }
 /*
