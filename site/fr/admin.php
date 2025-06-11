@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../connexion.inc.php');
+include('../../../connexion.inc.php');
 
 // si il n'est pas connecté
 if (!isset($_SESSION['u_id'])) {
