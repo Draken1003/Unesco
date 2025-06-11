@@ -1,5 +1,7 @@
 const navbar = document.getElementById("menu-header");
 const mcn = document.getElementById("mcn");
+const mcnStyle = document.getElementById("mcn").style.filter;
+
 
 window.addEventListener("scroll", (event) => {
     if (window.scrollY > 0) {
@@ -10,7 +12,7 @@ window.addEventListener("scroll", (event) => {
     } else {
         navbar.style.animation="navbar-bg-transparent 0.5s linear";
         navbar.style.backgroundColor = "transparent";
-        mcn.style.filter = "invert(1)"
+        mcn.style.filter = mcnStyle;
     }
     
 });
