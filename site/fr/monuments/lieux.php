@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include("../connexion.inc.php");
-$imgs = ["../img/card/Otagi-Nenbutsu-ji-japon.jpg", "../img/card/arch-kyoto.webp", "../img/card/hist-kyoto.jpg"];
+include("../../connexion.inc.php");
+$imgs = ["../../img/card/Otagi-Nenbutsu-ji-japon.jpg", "../../img/card/arch-kyoto.webp", "../../img/card/hist-kyoto.jpg"];
 
 $qry = $cnx->prepare("SELECT * FROM MONUMENT;");
 $qry->execute();

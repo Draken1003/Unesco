@@ -15,14 +15,14 @@
     </head>
     <body>
         <?php
-        include("../connexion.inc.php");
+        include("../../connexion.inc.php");
         $nom_monument = 'Fushimi-inari-taisha';
         // Liste des images
         $images = [
-            'img/japan-fox.svg',
-            'img/temple.svg',
-            'img/torii.webp',
-            'img/statue.svg'
+            '../../img/monument/fushimi-inari-taisha/japan-fox.svg',
+            '../../img/monument/fushimi-inari-taisha/temple.svg',
+            '../../img/monument/fushimi-inari-taisha/torii.webp',
+            '../../img/monument/fushimi-inari-taisha/statue.svg'
         ];
 
         // Traitement du changement de langue
@@ -31,7 +31,6 @@
             exit;
         }
 
-        $current_language = $_SESSION['language'] ?? $default_language;
         // Récupérer les informations du monument
         $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
         $monumentQuery->execute([$nom_monument]);
@@ -170,5 +169,5 @@
         </footer>
 
     </body>
-    <script src="/js/navbar.js"></script>
+    <script src="../js/navbar.js"></script>
 </html>
