@@ -172,8 +172,6 @@ p {
 
 /*---------------------------------*/
 
-
-
 .map {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 0px 32px 0 rgba(70, 10, 2, 0.37);
@@ -242,6 +240,10 @@ p {
     background-color: var(--white-color);
     color: var(--red-color);
     border: 1px solid var(--red-color);
+}
+
+#mcn {
+      filter: invert(0);
 }
 
 
