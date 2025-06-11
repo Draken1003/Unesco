@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
 <body>
 
     <span class="background"></span>
-    <form action="post" id="login-form" method="POST">
+    <form action="" id="login-form" method="POST">
 
         <div class="sign-container">
             <a href="home.html">
