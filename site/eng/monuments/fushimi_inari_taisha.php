@@ -27,7 +27,7 @@
 
         // Traitement du changement de langue
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            header("Location: ../../eng/monuments/fushimi_inari_taisha.php");
+            header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
             exit;
         }
 
