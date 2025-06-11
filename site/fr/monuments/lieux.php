@@ -2,9 +2,18 @@
 session_start();
 
 include("../../connexion.inc.php");
-$imgs = ["../../img/card/Otagi-Nenbutsu-ji-japon.jpg", "../../img/card/arch-kyoto.webp", "../../img/card/hist-kyoto.jpg"];
+$imgs = ["../../img/monument/Byodo-in/Byodo-in1.jpg", 
+         "../../img/monument/Byodo-in/Fushimi-inari-taisha1.svg", 
+         "../../img/monument/Byodo-in/Jingo-ji1.jpg", 
+         "../../img/monument/Byodo-in/Kamigamo1.jpg",
+         "../../img/monument/Byodo-in/Kiyomizu-dera1.jpg",
+         "../../img/monument/Byodo-in/Kozan-ji1.jpg",
+         "../../img/monument/Byodo-in/Nijo-jo1.jpg",
+         "../../img/monument/Byodo-in/Saiho-ji1.jpg",
+         "../../img/monument/Byodo-in/Saimyo-ji1.jpg"
+        ];
 
-$qry = $cnx->prepare("SELECT * FROM MONUMENT;");
+$qry = $cnx->prepare("SELECT * FROM MONUMENT ORDER BY id_m;");
 $qry->execute();
 $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -30,14 +39,14 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       <div class="menu-header-container">
         <div class="nav-links">
           <ul class="menu-header-container-page" id="menu">
-            <li><a href>Accueil</a></li>
-            <li><a href>Monuments</a></li>
-            <li><a href>Architecture</a></li>
-            <li><a href>Histoire</a></li>
+            <li><a href="../home.html">Accueil</a></li>
+            <li><a href="lieux.php">Monuments</a></li>
+            <li><a href="../architecture/architecture.html">Architecture</a></li>
+            <li><a href="../histoire/histoire.html">Histoire</a></li>
           </ul>
         </div>
         <a href><img class="translate-icon" src="../img/icon/translation.png" alt /></a>
-        <button class="bouton">Sign Up</button>
+        <button class="bouton">Connexion</button>
         <img
           src="../img/icon/menu.png"
           alt="une icone de menu"

@@ -26,6 +26,7 @@
     width: auto;
     position: relative;
 }
+
 .card-bottom button {
     width: fit-content;
     height: fit-content;
@@ -34,6 +35,7 @@
     font: clamp(10px, 1vw, 50px) "ClashDisplay-Semibold";
     line-height: 1vw;
 }
+
 .card-text {
     color: var(--black-color);  
     height: 80%;
