@@ -12,6 +12,13 @@
 </head>
 
 <body>
+
+    
+    <?php
+        include('php/verif_log.php');
+        echo "<br>";
+    ?>
+
     <span class="background"></span>
     <form action="post" id="login-form">
 
