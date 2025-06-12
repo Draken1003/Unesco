@@ -1,3 +1,44 @@
+<?php 
+    session_start();
+    include("../../connexion.inc.php");
+
+    if(!isset($_SESSION['id_m'])) {
+        header("Location: ./lieux.php");
+        exit;
+    }
+
+    $id_m = $_SESSION['id_m'];
+    // Traitement du changement de langue
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
+        header("Location: ../../eng/monuments/monument.php");
+        exit;
+    }
+
+    // on select d'abord les row selon la langue pour savoir on a cmb de sections.
+    // on fait nb de section + 1 pour la main_image derriere le titre
+    // on genere les images dans l'array avec une boucle qui va de 1 au nb de section "../../img/monument/" . $nomMonument . "/" . $nomMonument . "$i"
+
+
+    // Récupérer les informations du monument
+    $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE id_m = ? ");
+    $monumentQuery->execute([$id_m]);
+    $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
+    $nomMonument = $monument['nom'];
+
+    // Récupérer les sections associées à ce monument
+    $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
+    $sectionsQuery->execute([$id_m, 'fr']);
+    $nbSections = $sectionsQuery->rowCount();
+    $nbSections++;
+    $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
+            
+    $images = [];
+
+    for ($i = 1; $i<=$nbSections; $i++) {
+        array_push($images, '../../img/monument/' . $nomMonument . '/' . $nomMonument . $i . '.jpg');
+    }       
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -9,40 +50,11 @@
         <link rel="stylesheet" href="../css/all.css">
         <link rel="stylesheet" href="../css/color_var.css">
         <link rel="stylesheet" href="../css/font.css">
-        <link rel="stylesheet" href="./fushimi_inari_taisha.css">
+        <link rel="stylesheet" href="./monument.css">
         <link rel="stylesheet" href="../css/footer.css">
-        <title>Fushimi-Inari Taisha</title>
+        <title><?php echo "$nomMonument" ?></title>
     </head>
     <body>
-        <?php
-        include("../../connexion.inc.php");
-        $nom_monument = 'Fushimi-inari-taisha';
-        // Liste des images
-        $images = [
-            '../../img/monument/fushimi-inari-taisha/japan-fox.svg',
-            '../../img/monument/fushimi-inari-taisha/temple.svg',
-            '../../img/monument/fushimi-inari-taisha/torii.webp',
-            '../../img/monument/fushimi-inari-taisha/statue.svg'
-        ];
-
-        // Traitement du changement de langue
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
-            exit;
-        }
-
-        // Récupérer les informations du monument
-        $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-        $monumentQuery->execute([$nom_monument]);
-        $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-        $monumentId = $monument['id_m'];
-
-        // Récupérer les sections associées à ce monument
-        $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-        $sectionsQuery->execute([$monumentId, 'fr']);
-        $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-
         <span class="background"></span>
         <header class="menu-header" id="menu-header">
             <img src="../../img/logo/logo_mcn.png" width="11%" id="mcn" alt>
@@ -59,13 +71,15 @@
                         <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
-                <button class="bouton">Connexion</button>
+                <form action="../login.php">
+                    <button type="submit" class="bouton">Connexion</button>
+                </form>
             </div>
         </header>
 
         <div class="container-titre">
             <img src="<?= $images[0] ?>" width="100%" alt>
-            <h1 class="titre"><?= htmlspecialchars($monument['nom']) ?></h1>
+            <h1 class="titre"><?= htmlspecialchars($nomMonument) ?></h1>
         </div>
 
         <?php
@@ -123,14 +137,10 @@
         </div>
         <?php } 
         } ?>
-        <div class="container-button">
-            <a href="http://">Plus d'info</a> 
-        </div>
-
         <div class="map">
             <div class="map-left">
                 <div class="top">
-                    <p>Adresse : 8 Umegahata Toganoocho, Ukyo Ward, Kyoto, 616-8295, Japon</p>
+                    <p>Adresse : <?= $monument['adresse'] ?></p>
                 </div>
                 <div class="bottom">
                     <a class="map-left-search-bar" target="_blank" href="<?= htmlspecialchars($monument['google_map']) ?>">
@@ -139,12 +149,11 @@
                 </div>
             </div>
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.9435577195577!2d135.77660731181788!3d34.96769886872595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010f153d2e6d21%3A0x7b1aca1c753ae2e9!2sFushimi%20Inari-taisha!5e1!3m2!1sfr!2sfr!4v1743782812545!5m2!1sfr!2sfr"
+                src="<?= $monument['iframe']?>"
                 width="600" height="450" style="border:0;" allowfullscreen
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-
         <footer class="footer">
             <hr>
             <div class="logo_footer">

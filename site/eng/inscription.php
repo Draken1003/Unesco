@@ -34,7 +34,7 @@
 
             } catch (Exception $e) {
                 $cnx->rollBack();
-                echo "<p style='color: red;'>Erreur : L'adresse email existe déja.</p>";
+                echo "<p style='color: red;'>Erreur : Email adress already exist.</p>";
             }
 
                     }
@@ -55,37 +55,37 @@
     <form method="POST" id="login-form">
         <div class="sign-container">
             <img src="../img/user.png" class="default-pfp">
-            <p>Créer un compte</p>
+            <p>Create an account</p>
 
             <div class="info-client">
                 <div class="input">
-                    <input type="text" name="nom" placeholder="Nom" required>
+                    <input type="text" name="nom" placeholder="Last name" required>
                 </div>
                 <div class="input">
-                    <input type="text" name="prenom" placeholder="Prénom" required>
+                    <input type="text" name="prenom" placeholder="First name" required>
                 </div>
                 <div class="input">
-                    <input type="number" name="age" placeholder="Âge" required min=5 max=100>
+                    <input type="number" name="age" placeholder="Age" required min=5 max=100>
                 </div>
                 <div class="input">
                     <select name="sexe" required>
-                        <option value="" disabled selected>Sexe</option>
-                        <option value="Homme" name="homme">Homme</option>
-                        <option value="Femme" name="femme">Femme</option>
-                        <option value="Autre" name="autre">Autre</option>
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Homme" name="homme">Men</option>
+                        <option value="Femme" name="femme">Women</option>
+                        <option value="Autre" name="autre">Other</option>
                     </select>
                 </div>
                 <div class="input">
-                    <input type="email" name="email" placeholder="Adresse e-mail" required>
+                    <input type="email" name="email" placeholder="E-mail address" required>
                 </div>
                 <div class="input">
-                    <input type="password" name="password" placeholder="Mot de passe" required>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
 
-                <input type="submit" name="inscription" value="S'inscrire">
+                <input type="submit" name="inscription" value="Sign up">
 
                 <div class="infos">
-                    <a href="login.php">Déjà un compte ? Connectez-vous ici</a>
+                    <a href="login.php">Already have an account? Sign in here</a>
                 </div>
             </div>
         </div>

@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])){
 
 include("../../connexion.inc.php");
 $imgs = ["../../img/monument/Byodo-in/Byodo-in1.jpg", 
-         "../../img/monument/Byodo-in/Fushimi-inari-taisha1.svg", 
-         "../../img/monument/Byodo-in/Jingo-ji1.jpg", 
-         "../../img/monument/Byodo-in/Kamigamo1.jpg",
-         "../../img/monument/Byodo-in/Kiyomizu-dera1.jpg",
+         "../../img/monument/Fushimi-inari-taisha/Fushimi-inari-taisha1.jpg", 
+         "../../img/monument/Jingo-ji/Jingo-ji1.jpg", 
+         "../../img/monument/Kamigamo/Kamigamo1.jpg",
+         "../../img/monument/Kiyomizu-dera/Kiyomizu-dera1.jpg",
          "../../img/monument/Byodo-in/Kozan-ji1.jpg",
          "../../img/monument/Byodo-in/Nijo-jo1.jpg",
          "../../img/monument/Byodo-in/Saiho-ji1.jpg",
@@ -47,14 +47,16 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       <div class="menu-header-container">
         <div class="nav-links">
           <ul class="menu-header-container-page" id="menu">
-            <li><a href="../home.html">Accueil</a></li>
+            <li><a href="../home.html">Home</a></li>
             <li><a href="lieux.php">Monuments</a></li>
             <li><a href="../architecture/architecture.html">Architecture</a></li>
-            <li><a href="../histoire/histoire.html">Histoire</a></li>
+            <li><a href="../histoire/histoire.html">History</a></li>
           </ul>
         </div>
-        <a href="../../eng/monuments/lieux.php"><img class="translate-icon" src="../../img/icon/translation.png" alt /></a>
-        <button class="bouton">Connexion</button>
+        <a href="../../fr/monuments/lieux.php"><img class="translate-icon" src="../../img/icon/translation.png" alt /></a>
+        <form action="../login.php">
+            <button type="submit" class="bouton">Login</button>
+        </form>
         <img
           src="../../img/icon/menu.png"
           alt="une icone de menu"
@@ -81,13 +83,12 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
           <div class="card-bottom">
               <div class="card-text">
                   <h1><?php echo $monument['nom']; ?></h1>
-                  <p><?php echo $monument['description']; ?></p>
+                  <p><?php echo $monument['description_ang']; ?></p>
               </div>
               <form method="post">
                   <input type="hidden" name="id_m" value="<?php echo $monument['id_m'] ?>">
-                  <button class="bouton" type="submit" name="action">Voir plus</button>
+                  <button class="bouton" type="submit" name="action">See more</button>
               </form>
-              
           </div>
       </div>
       <?php
@@ -125,7 +126,7 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
       </div>
 
       <div class="rights">
-        <p>© 2025 - Tous droits réservés</p>
+        <p>© 2025 - All rights reserved</p>
       </div>
     </footer>
   </body>
