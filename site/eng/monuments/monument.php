@@ -80,6 +80,11 @@
         <div class="container-titre">
             <img src="<?= $images[0] ?>" width="100%" alt>
             <h1 class="titre"><?= htmlspecialchars($nomMonument) ?></h1>
+            <div class="arrow_bottom-center">
+                <a href="#debutpage"
+                ><img src="../../img/icon/arrow.png" alt="arrow icon" />
+                </a>
+            </div>
         </div>
 
         <?php

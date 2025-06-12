@@ -53,10 +53,10 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="../histoire/histoire.html">Histoire</a></li>
           </ul>
         </div>
-        <a href><img class="translate-icon" src="../img/icon/translation.png" alt /></a>
+        <a href="../../eng/monuments/lieux.php"><img class="translate-icon" src="../../img/icon/translation.png" alt /></a>
         <button class="bouton">Connexion</button>
         <img
-          src="../img/icon/menu.png"
+          src="../../img/icon/menu.png"
           alt="une icone de menu"
           class="menu-icon"
           id="burger-icon"
