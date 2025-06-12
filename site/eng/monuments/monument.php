@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../css/all.css">
         <link rel="stylesheet" href="../css/color_var.css">
         <link rel="stylesheet" href="../css/font.css">
-        <link rel="stylesheet" href="./fushimi_inari_taisha.css">
+        <link rel="stylesheet" href="./monument.css">
         <link rel="stylesheet" href="../css/footer.css">
         <title>Fushimi-Inari Taisha</title>
     </head>
@@ -27,7 +27,7 @@
 
         // Traitement du changement de langue
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            header("Location: ../../fr/monuments/fushimi_inari_taisha.php");
+            header("Location: ../../fr/monuments/monument.php");
             exit;
         }
 

@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])){
+  if(isset($_POST['id_m'])) {
+    $_SESSION['id_m'] = (int)$_POST['id_m'];
+    header("Location: ./monument.php");
+    exit;
+  }
+}
+
 include("../../connexion.inc.php");
 $imgs = ["../../img/monument/Byodo-in/Byodo-in1.jpg", 
          "../../img/monument/Byodo-in/Fushimi-inari-taisha1.svg", 
@@ -75,7 +83,11 @@ $monuments = $qry->fetchAll(PDO::FETCH_ASSOC);
                   <h1><?php echo $monument['nom']; ?></h1>
                   <p><?php echo $monument['description']; ?></p>
               </div>
-              <button class="bouton">Voir plus</button>
+              <form method="post">
+                  <input type="hidden" name="id_m" value="<?php echo $monument['id_m'] ?>">
+                  <button class="bouton" type="submit" name="action">Voir plus</button>
+              </form>
+              
           </div>
       </div>
       <?php
