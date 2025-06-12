@@ -1,3 +1,44 @@
+<?php 
+    session_start();
+    include("../../connexion.inc.php");
+
+    if(!isset($_SESSION['id_m'])) {
+        header("Location: ./lieux.php");
+        exit;
+    }
+
+    $id_m = $_SESSION['id_m'];
+    // Traitement du changement de langue
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
+        header("Location: ../../fr/monuments/monument.php");
+        exit;
+    }
+
+    // on select d'abord les row selon la langue pour savoir on a cmb de sections.
+    // on fait nb de section + 1 pour la main_image derriere le titre
+    // on genere les images dans l'array avec une boucle qui va de 1 au nb de section "../../img/monument/" . $nomMonument . "/" . $nomMonument . "$i"
+
+
+    // Récupérer les informations du monument
+    $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE id_m = ? ");
+    $monumentQuery->execute([$id_m]);
+    $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
+    $nomMonument = $monument['nom'];
+
+    // Récupérer les sections associées à ce monument
+    $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
+    $sectionsQuery->execute([$id_m, 'en']);
+    $nbSections = $sectionsQuery->rowCount();
+    $nbSections++;
+    $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
+            
+    $images = [];
+
+    for ($i = 1; $i<=$nbSections; $i++) {
+        array_push($images, '../../img/monument/' . $nomMonument . '/' . $nomMonument . $i . '.jpg');
+    }       
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,39 +52,9 @@
         <link rel="stylesheet" href="../css/font.css">
         <link rel="stylesheet" href="./monument.css">
         <link rel="stylesheet" href="../css/footer.css">
-        <title>Fushimi-Inari Taisha</title>
+        <title><?php echo "$nomMonument" ?></title>
     </head>
     <body>
-        <?php
-        include("../connexion.inc.php");
-        $nom_monument = 'Fushimi-inari-taisha';
-        // Liste des images
-        $images = [
-            'img/japan-fox.svg',
-            'img/temple.svg',
-            'img/torii.webp',
-            'img/statue.svg'
-        ];
-
-        // Traitement du changement de langue
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            header("Location: ../../fr/monuments/monument.php");
-            exit;
-        }
-
-        $current_language = $_SESSION['language'] ?? $default_language;
-        // Récupérer les informations du monument
-        $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE nom = ? ");
-        $monumentQuery->execute([$nom_monument]);
-        $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-        $monumentId = $monument['id_m'];
-
-        // Récupérer les sections associées à ce monument
-        $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-        $sectionsQuery->execute([$monumentId, 'eng']);
-        $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-
         <span class="background"></span>
         <header class="menu-header" id="menu-header">
             <img src="../../img/logo/logo_mcn.png" width="11%" id="mcn" alt>
@@ -60,13 +71,15 @@
                         <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
-                <button class="bouton">Login</button>
+                <form action="../login.php">
+                    <button type="submit" class="bouton">Connexion</button>
+                </form>
             </div>
         </header>
 
         <div class="container-titre">
             <img src="<?= $images[0] ?>" width="100%" alt>
-            <h1 class="titre"><?= htmlspecialchars($monument['nom']) ?></h1>
+            <h1 class="titre"><?= htmlspecialchars($nomMonument) ?></h1>
         </div>
 
         <?php
@@ -124,9 +137,6 @@
         </div>
         <?php } 
         } ?>
-        <div class="container-button">
-            <a href="http://">More informations</a> 
-        </div>
 
         <div class="map">
             <div class="map-left">

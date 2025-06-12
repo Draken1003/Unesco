@@ -10,7 +10,7 @@
     $id_m = $_SESSION['id_m'];
     // Traitement du changement de langue
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-        header("Location: ../../fr/monuments/monument.php");
+        header("Location: ../../eng/monuments/monument.php");
         exit;
     }
 
@@ -71,7 +71,9 @@
                         <img src="../../img/icon/translation.png" alt="Language icon" class="translate-icon">
                     </button>
                 </form>
-                <button class="bouton">Connexion</button>
+                <form action="../login.php">
+                    <button type="submit" class="bouton">Connexion</button>
+                </form>
             </div>
         </header>
 

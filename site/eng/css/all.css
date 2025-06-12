@@ -46,6 +46,28 @@ body{
     margin-right: clamp(30px, 2%, 80px);
 }
 */
+
+.language-form {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.translate-button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.translate-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+
 .bouton{
     all: unset;
     background-color: var(--red-color);
