@@ -1,3 +1,44 @@
+<?php 
+    session_start();
+    include("../../connexion.inc.php");
+
+    if(!isset($_SESSION['id_m'])) {
+        header("Location: ./lieux.php");
+        exit;
+    }
+
+    $id_m = $_SESSION['id_m'];
+    // Traitement du changement de langue
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
+        header("Location: ../../fr/monuments/monument.php");
+        exit;
+    }
+
+    // on select d'abord les row selon la langue pour savoir on a cmb de sections.
+    // on fait nb de section + 1 pour la main_image derriere le titre
+    // on genere les images dans l'array avec une boucle qui va de 1 au nb de section "../../img/monument/" . $nomMonument . "/" . $nomMonument . "$i"
+
+
+    // Récupérer les informations du monument
+    $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE id_m = ? ");
+    $monumentQuery->execute([$id_m]);
+    $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
+    $nomMonument = $monument['nom'];
+
+    // Récupérer les sections associées à ce monument
+    $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
+    $sectionsQuery->execute([$id_m, 'fr']);
+    $nbSections = $sectionsQuery->rowCount();
+    $nbSections++;
+    $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
+            
+    $images = [];
+
+    for ($i = 1; $i<=$nbSections; $i++) {
+        array_push($images, '../../img/monument/' . $nomMonument . '/' . $nomMonument . $i . '.jpg');
+    }       
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -9,56 +50,11 @@
         <link rel="stylesheet" href="../css/all.css">
         <link rel="stylesheet" href="../css/color_var.css">
         <link rel="stylesheet" href="../css/font.css">
-        <link rel="stylesheet" href="./fushimi_inari_taisha.css">
+        <link rel="stylesheet" href="./monument.css">
         <link rel="stylesheet" href="../css/footer.css">
-        <title>Fushimi-Inari Taisha</title>
+        <title><?php echo "$nomMonument" ?></title>
     </head>
     <body>
-        <?php
-        session_start();
-        include("../../connexion.inc.php");
-
-        if(!isset($_SESSION['id_m'])) {
-            header("Location: ./lieux.php");
-            exit;
-        }
-
-        $id_m = $_SESSION['id_m'];
-
-        // on select d'abord les row selon la langue pour savoir on a cmb de sections.
-        // on fait nb de section + 1 pour la main_image derriere le titre
-        // on genere les images dans l'array avec une boucle qui va de 1 au nb de section "../../img/monument/" . $nomMonument . "/" . $nomMonument . "$i"
-        
-
-        // Traitement du changement de langue
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_language'])) {
-            header("Location: ../../fr/monuments/monument.php");
-            exit;
-        }
-
-        // Récupérer les informations du monument
-        $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE id_m = ? ");
-        $monumentQuery->execute([$id_m]);
-        $monument = $monumentQuery->fetch(PDO::FETCH_ASSOC);
-        $nomMonument = $monument['nom'];
-
-        // Récupérer les sections associées à ce monument
-        $sectionsQuery = $cnx->prepare("SELECT * FROM section WHERE id_m = ? and langue_code = ? ORDER BY ordre ASC");
-        $sectionsQuery->execute([$id_m, 'fr']);
-        $nbSections = $sectionsQuery->rowCount();
-        $nbSections++;
-        $sections = $sectionsQuery->fetchAll(PDO::FETCH_ASSOC);
-        
-        $images = [];
-
-        for ($i = 1; $i<=$nbSections; $i++) {
-            array_push($images, '../../img/monument/' . $nomMonument . '/' . $nomMonument . $i);
-        }
-        
-        ?>
-
-        
-
         <span class="background"></span>
         <header class="menu-header" id="menu-header">
             <img src="../../img/logo/logo_mcn.png" width="11%" id="mcn" alt>
@@ -81,7 +77,7 @@
 
         <div class="container-titre">
             <img src="<?= $images[0] ?>" width="100%" alt>
-            <h1 class="titre"><?= htmlspecialchars($monument['nom']) ?></h1>
+            <h1 class="titre"><?= htmlspecialchars($nomMonument) ?></h1>
         </div>
 
         <?php
@@ -139,10 +135,6 @@
         </div>
         <?php } 
         } ?>
-        <div class="container-button">
-            <a href="http://">Plus d'info</a> 
-        </div>
-
         <div class="map">
             <div class="map-left">
                 <div class="top">
