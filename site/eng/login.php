@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
 
         <div class="sign-container">
             <a href="home.html">
-                <img src="../img/home.png" id="home">
+                <img src="../img/icon/home.png" id="home">
             </a>
 
             <img src="../img/user.png" class="default-pfp">
