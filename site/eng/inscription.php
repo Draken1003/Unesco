@@ -34,7 +34,7 @@
 
             } catch (Exception $e) {
                 $cnx->rollBack();
-                echo "<p style='color: red;'>Erreur : L'adresse email existe déja.</p>";
+                echo "<p style='color: red;'>Erreur : Email adress already exist.</p>";
             }
 
                     }
