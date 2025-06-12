@@ -18,7 +18,6 @@
     // on fait nb de section + 1 pour la main_image derriere le titre
     // on genere les images dans l'array avec une boucle qui va de 1 au nb de section "../../img/monument/" . $nomMonument . "/" . $nomMonument . "$i"
 
-
     // Récupérer les informations du monument
     $monumentQuery = $cnx->prepare("SELECT * FROM monument WHERE id_m = ? ");
     $monumentQuery->execute([$id_m]);

@@ -11,14 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])){
 
 include("../../connexion.inc.php");
 $imgs = ["../../img/monument/Byodo-in/Byodo-in1.jpg", 
-         "../../img/monument/Byodo-in/Fushimi-inari-taisha1.svg", 
-         "../../img/monument/Byodo-in/Jingo-ji1.jpg", 
-         "../../img/monument/Byodo-in/Kamigamo1.jpg",
-         "../../img/monument/Byodo-in/Kiyomizu-dera1.jpg",
-         "../../img/monument/Byodo-in/Kozan-ji1.jpg",
-         "../../img/monument/Byodo-in/Nijo-jo1.jpg",
-         "../../img/monument/Byodo-in/Saiho-ji1.jpg",
-         "../../img/monument/Byodo-in/Saimyo-ji1.jpg"
+         "../../img/monument/Fushimi-inari-taisha/Fushimi-inari-taisha1.jpg", 
+         "../../img/monument/Jingo-ji/Jingo-ji1.jpg", 
+         "../../img/monument/Kamigamo/Kamigamo1.jpg",
+         "../../img/monument/Kiyomizu-dera/Kiyomizu-dera1.jpg",
+         "../../img/monument/Kozan-ji/Kozan-ji1.jpg",
+         "../../img/monument/Nijo-jo/Nijo-jo1.jpg",
+         "../../img/monument/Saiho-ji/Saiho-ji1.jpg",
+         "../../img/monument/Saimyo-ji/Saimyo-ji1.jpg"
         ];
 
 $qry = $cnx->prepare("SELECT * FROM MONUMENT ORDER BY id_m;");
