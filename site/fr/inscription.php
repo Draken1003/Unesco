@@ -54,7 +54,7 @@
 
     <form method="POST" id="login-form">
         <div class="sign-container">
-            <img src="img/user.png" class="default-pfp">
+            <img src="../img/user.png" class="default-pfp">
             <p>Créer un compte</p>
 
             <div class="info-client">
