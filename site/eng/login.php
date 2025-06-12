@@ -17,17 +17,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valider"])){
         $_SESSION['u_id'] = $row["id_r"];
 
         if ($row["id_r"] == 1) {
-            header("Location: admin.php"); 
+            header("Location: ../fr/admin.php"); 
             exit;
         } else if ($row['id_r'] == 2) {
-            header("Location: gestionnaire.php"); 
+            header("Location: ../fr/gestionnaire.php"); 
             exit;
         } else {
             header("Location: home.html"); 
             exit;
         }
     } else {
-        echo "<p style='color:red; font-size:1rem; font-weight:200;'>L'identifiant ou le mot de passe est incorrect.</p>";
+        echo "<p style='color:red; font-size:1rem; font-weight:200;'> Username or password is incorrect.</p>";
     }
 }
 ?>
